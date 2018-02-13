@@ -1,4 +1,5 @@
 //array of words
+var thisIsATest = 2000;
 const wordList = ["buzz", "fizzy", "guevara", "pipboy", "bobmarley", "pirate"];
 
 //alphabet array
