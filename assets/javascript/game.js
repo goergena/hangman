@@ -1,6 +1,6 @@
 //array of words
 
-const wordList = ["buzz", "fizzy", "guevara", "pipboy", "bobmarley", "pirate"];
+const wordList = ["omlette", "bacon", "pancakes", "happiness", "mimosa", "scramble"];
 
 //alphabet array
 var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", 
