@@ -18,23 +18,23 @@ var remainingGuesses = 13;
 var wins = 0;
 var losses = 0;
 
-var blankArray = [];
-for (i=0; i<word.length; i++) {
-    blankArray.push("_ ");
-}
+//var blankArray = [];
+//for (i=0; i<word.length; i++) {
+  //  blankArray.push("_ ");
+//}
 
 var display = "";
 
-for (j=0; j<blankArray.length; j++) {
-   display = display + blankArray[j];
-} 
+//for (j=0; j<blankArray.length; j++) {
+ //  display = display + blankArray[j];
+//} 
 
  //display = display + blankArray.charAt(j); 
  //console.log(blankArray[j]);
  //document.getElementById("show-blanks").innerHTML = showBlanks;
 
 //var wordArray = word.split("");
-var correctGuesses = [];
+var allGuessedLetters = [];
 
 
 console.log("test log " + word.charAt(0));
@@ -46,22 +46,47 @@ document.onkeyup = function(event) {
     if (alphabet.includes(event.key)) {
         // the key is set as the user's guess...
         var guess = event.key;
+        if (!allGuessedLetters.includes(guess)) {
+            allGuessedLetters.push(guess);
+        }
+        console.log(allGuessedLetters);
+        
+
+
         //and the guess is passed through the word.
             if(word.includes(guess)) {
                 console.log("correct guess: " + guess);
-                var placeGuess = word.indexOf(guess);
-                console.log(placeGuess);
-                blankArray[placeGuess] = guess;
-                console.log(blankArray);
-                document.getElementById("game").innerHTML = display;
+                
+                //var placeGuess = word.indexOf(guess);
+                //console.log(placeGuess);
+                //blankArray[placeGuess] = guess;
+                //console.log(blankArray);
+                //document.getElementById("game").innerHTML = display;
             }
             else if (!guessedLetters.includes(guess) && !word.includes(guess)){
                 guessedLetters.push(guess);
                 remainingGuesses--;
-                console.log("guessed letters: " + guessedLetters);  
+                console.log("guessed wrong letters: " + guessedLetters);  
             } 
     
-
+            for (var k = 0; k < word.length; k++) {
+                if (allGuessedLetters.includes(word.charAt(k) ) ) {
+                //fills display on a loop, man! 
+                display += word.charAt(k);
+                } else {
+                    //display will keep filling 
+                display += "_ ";
+                }
+            };
+           /* if (display===word && remainingGuesses > 0) {
+                console.log("you win!");
+                wins++;
+            } else if (remainingGuesses===0){
+                console.log("you lose!");
+                losses++;
+            }; */
+            
+            console.log("this is the display " + display);
             
 
 
