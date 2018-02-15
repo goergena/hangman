@@ -23,6 +23,7 @@ var results = "";
 
 var blankArray = [];
 var display = "";
+var guessedLetterString = "";
 for (i=0; i<word.length; i++) {
   blankArray.push("_");
 }
@@ -45,11 +46,11 @@ function startGame() {
 //when a key is pressed...
 document.onkeyup = function(event) {
     results = "";
-    //if the key pressed is in the alphabet,
-    if (alphabet.includes(event.key)) {
-        // the key is set as the user's guess...
-        var guess = event.key;
-
+    //the key pressed is set as the guess and converted to lowercase
+    var guess = event.key.toLowerCase();
+    //the rest of the game only works if that key was a letter
+    if (alphabet.includes(guess)) {        
+        
         //if the guess is wrong, remaining guesses goes down and the guess is displayed in guessedLetters.
         //repeated wrong guesses do not re-enter the guessedLetters array
         if (!guessedLetters.includes(guess) && !word.includes(guess)){
@@ -57,6 +58,7 @@ document.onkeyup = function(event) {
             remainingGuesses--;
             console.log("guessed wrong letters: " + guessedLetters);  
         }
+        guessedLetterString = guessedLetters.join(" ");
         
         for (var k = 0; k < word.length; k++) {
             if (guess.includes(word.charAt(k) ) ) {
@@ -83,7 +85,7 @@ document.onkeyup = function(event) {
         document.getElementById("instructions").innerHTML = "";
         document.getElementById("display").innerHTML = display;
         document.getElementById("remaining-guesses").innerHTML = remainingGuesses;
-        document.getElementById("guessed-letters").innerHTML = guessedLetters;
+        document.getElementById("guessed-letters").innerHTML = guessedLetterString;
         document.getElementById("results").innerHTML = results;
         document.getElementById("wins").innerHTML = wins;
         document.getElementById("losses").innerHTML = losses;

@@ -1,21 +1,38 @@
 <!DOCTYPE= html>
 <html>
 <head lang="en-us">
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Roboto" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <title>Hangbrunch</title>
 </head>
 <body>
-    <h1>Hangbrunch</h1>
-    <h2>Like hangman, but reminiscent of the joy you experience on weekends 10am-2pm</h2>
-    <p id="instructions">press any key to begin</p>
-    <div><img src="assets/images/main-brunch.jpeg" id="win-img" style= "width: 400px" "height: 400px"></div>
-    <div id="results"></div>
-    <span id="display"></span>
-    <p>Guesses Remaining: <span id="remaining-guesses">13</span> </p>
-    <p>Guessed Letters: <span id="guessed-letters"></span></p>
-    <p>Wins: <span id="wins"></span></p>
-    <p>Losses: <span id="losses"></span></p>
+    <header>
+        <div class="general">
+                <h1>Hangbrunch</h1>
+        </div>
 
+    </header>
+
+    <section class="general">
+        <div class="main-content">
+                <h2>Like hangman, but reminiscent of the joy you experience on weekends 10am-2pm</h2>
+            <p id="instructions">-Press any key to begin-</p>
+            <div><img src="assets/images/main-brunch.jpeg" id="win-img" class="brunch-img"></div>
+            <div id="results"></div>
+            <div id="display"></div>
+            <p>Guesses Remaining: <span id="remaining-guesses">13</span> </p>
+            <p>Guessed Letters: <span id="guessed-letters"></span></p>
+            <p>Wins: <span id="wins"></span></p>
+            <p>Losses: <span id="losses"></span></p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="general">Brought to you with love by Ali </div>
+
+    </footer>
 
     <script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
