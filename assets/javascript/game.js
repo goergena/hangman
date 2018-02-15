@@ -1,6 +1,8 @@
 //array of words
 
-const wordList = ["omlette", "bacon", "pancakes", "happiness", "mimosa", "scramble"];
+const wordList = ["omelette", "bacon", "pancakes", "happiness", "mimosa", "scramble", "biscuit"];
+const imgList = ["assets/images/omelette.jpg", "assets/images/bacon.jpg", "assets/images/pancakes.jpg", "assets/images/happiness.jpg", "assets/images/mimosa.jpg", "assets/images/scramble.jpg", "assets/images/biscuit.jpeg"]
+var image = document.getElementById("win-img");
 
 //alphabet array
 var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", 
@@ -33,7 +35,7 @@ function startGame() {
     remainingGuesses = 13;
     blankArray = [];
     display = "";
-    for (i=0; i<word.length; i++) {
+    for (j=0; j<word.length; j++) {
     blankArray.push("_");
     }
     display = blankArray.join(" ");
@@ -48,7 +50,8 @@ document.onkeyup = function(event) {
         // the key is set as the user's guess...
         var guess = event.key;
 
-        //if the guess is wrong, remaining guesses goes down and the guess is displayed in guessedLetters
+        //if the guess is wrong, remaining guesses goes down and the guess is displayed in guessedLetters.
+        //repeated wrong guesses do not re-enter the guessedLetters array
         if (!guessedLetters.includes(guess) && !word.includes(guess)){
             guessedLetters.push(guess);
             remainingGuesses--;
@@ -65,7 +68,13 @@ document.onkeyup = function(event) {
         if(!display.includes("_") && remainingGuesses > 0) {
             results = "you win! the word was " + word;
             wins++;
+            for (m = 0; m < wordList.length; m ++) {
+                if (word === wordList[m]) {
+                image.src = imgList[m];
+                }
+            };
             startGame();
+
         } else if (remainingGuesses===0){
             results = "you lost! the word was " + word;
             losses++;
