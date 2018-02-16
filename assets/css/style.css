@@ -55,8 +55,8 @@ h1 {
 } 
 
 .brunch-img {
-    width: 400px;
-    height: 350px;
+    width: 300px;
+    height: auto;
 }
 
 h2 {
@@ -65,6 +65,7 @@ h2 {
     font-size: 28px;
     padding: 10px 0px;
 }
+
 
 #display {
     color: #fff;

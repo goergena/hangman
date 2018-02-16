@@ -58,7 +58,7 @@ document.onkeyup = function(event) {
             remainingGuesses--;
             console.log("guessed wrong letters: " + guessedLetters);  
         }
-        guessedLetterString = guessedLetters.join(" ");
+        guessedLetterString = guessedLetters.join("  ").toUpperCase();
         
         for (var k = 0; k < word.length; k++) {
             if (guess.includes(word.charAt(k) ) ) {
@@ -68,7 +68,7 @@ document.onkeyup = function(event) {
         display = blankArray.join(" ");
     
         if(!display.includes("_") && remainingGuesses > 0) {
-            results = "you win! the word was " + word;
+            results = "You win! The word was " + word.toUpperCase();
             wins++;
             for (m = 0; m < wordList.length; m ++) {
                 if (word === wordList[m]) {
@@ -78,7 +78,7 @@ document.onkeyup = function(event) {
             startGame();
 
         } else if (remainingGuesses===0){
-            results = "you lost! the word was " + word;
+            results = "You lost! The word was " + word.toUpperCase();
             losses++;
             startGame();
         }; 
